@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DemographyAI</title>
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='icons/head.png') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+</head>
+<body>
+  <header>
+    <div class="logo" onclick="window.location.href='{{ url_for('home') }}'">
+      DemographyAI
+    </div>
+    <nav role="navigation" class="primary-navigation">
+      <ul>
+        <li><a href="{{ url_for('home') }}" aria-label="Go to Home">Home</a></li>
+        <li><a href="#">Detect and Analyze Faces &dtrif;</a>
+          <ul class="dropdown">
+            <li><a href="{{ url_for('upload') }}" aria-label="Go to Upload Image">Upload Image</a></li>
+            <li><a href="{{ url_for('webcam') }}" aria-label="Go to Live Webcam">Live Webcam</a></li>
+            <li><a href="{{ url_for('snapshot') }}" aria-label="Go to Capture Webcam">Capture Webcam</a></li>
+            <li><a href="{{ url_for('upload_video') }}" aria-label="Go to Upload Video">Upload Video</a></li>
+          </ul>
+        </li>
+        <li><a href="{{ url_for('dashboard') }}" aria-label="Go to Dashboard">Dashboard</a></li>
+      </ul>
+  </header>
+
+  <main>
+    <h1>Welcome to DemographyAI</h1>
+    <p>Discover insights through our advanced image analysis platform. Upload, capture, or use live webcam to analyze age, gender, ethnicity, and emotion.</p>
+
+    <section class="features">
+        <article class="feature">
+            <img src="{{ url_for('static', filename='icons/upload.png') }}" alt="Upload Image Icon">
+            <h3>Upload Image</h3>
+            <p>Select an image from your device to begin analysis.</p>
+            <button class="action-button" aria-label="Upload Image" onclick="redirectToPage('{{ url_for('upload') }}')">Upload</button>
+        </article>
+        <article class="feature">
+            <img src="{{ url_for('static', filename='icons/webcam.png') }}" alt="Use Live Webcam Icon">
+            <h3>Use Live Webcam</h3>
+            <p>Enable your webcam for real-time image analysis.</p>
+            <button class="action-button" aria-label="Start Webcam" onclick="redirectToPage('{{ url_for('webcam') }}')">Start Webcam</button>
+        </article>
+        <article class="feature">
+            <img src="{{ url_for('static', filename='icons/snapshot.png') }}" alt="Take a Snapshot Icon">
+            <h3>Take a Snapshot</h3>
+            <p>Capture a new image using your device's camera.</p>
+            <button class="action-button" aria-label="Capture Snapshot" onclick="redirectToPage('{{ url_for('snapshot') }}')">Capture</button>
+        </article>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2023 DemographyAI. All rights reserved.</p>
+    <nav>
+      <a href="{{ url_for('privacy') }}" aria-label="Privacy Policy">Privacy Policy</a>
+      <a href="{{ url_for('about') }}" aria-label="About Me">About Me</a>
+      <a href="{{ url_for('contact') }}" aria-label="Contact Me">Contact Me</a>
+    </nav>
+  </footer>
+
+  <script>
+    function redirectToPage(url) {
+        window.location.href = url;
+    }
+  </script>
+</body>
+</html>

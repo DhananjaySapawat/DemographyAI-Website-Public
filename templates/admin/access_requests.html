@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DemographyAI</title>
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='icons/head.png') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/admin/access_requests.css') }}">
+</head>
+<body>
+  <header>
+    <div class="logo" onclick="window.location.href='{{ url_for('home') }}'">
+      DemographyAI
+    </div>
+    <nav>
+      <a href="{{ url_for('dashboard') }}">Dashboard</a>
+      <a href="{{ url_for('logout') }}">Log Out</a>
+    </nav>
+  </header>
+  
+  <main>
+    <section class="access-requests">
+      <h3>Access Requests</h3>
+      <table>
+        <thead>
+          <tr>
+              <th>User Name</th>
+              <th>Email</th>
+              <th>Request Date</th>
+              <th>Actions</th>
+          </tr>
+      </thead>
+        <tbody>
+          {% for user in users %}
+            <tr>
+              <td>{{ user.username }}</td>
+              <td>{{ user.mail }}</td>
+              <td>{{ user.date }}</td>
+              <td>
+                {% if user.status == 'Pending' %}
+                  <a href="{{ url_for('process_request', user_id=user.id, action='approve') }}" class="action-btn approve-btn">Approve</a> 
+                  <a href="{{ url_for('process_request', user_id=user.id, action='disapprove') }}" class="action-btn disapprove-btn">Disapprove</a>
+                {% else %}
+                  <a href="{{ url_for('process_request', user_id=user.id, action='delete') }}" class="action-btn revoke-btn">Revoke Access</a>
+                {% endif %}
+              </td>            
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </section>
+  </main>
+  
+  <footer>
+    <p>© 2023 DemographyAI. All rights reserved.</p>
+  </footer>
+</body>
+</html>

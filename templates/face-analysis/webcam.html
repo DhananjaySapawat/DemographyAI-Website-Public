@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DemographyAI</title>
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='icons/head.png') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/face-analysis/webcam.css') }}">
+
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.15.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/blazeface"></script>
+
+  <script src="{{ url_for('static', filename='js/webcam/model_functions.js') }}"></script>
+  <script defer src="{{ url_for('static', filename='js/webcam/webcam.js') }}"></script>
+</head>
+<body>
+    <header>
+      <div class="logo" onclick="window.location.href='{{ url_for('home') }}'">
+        DemographyAI
+      </div>
+      <nav>
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('upload') }}">Upload Image</a>
+        <a href="{{ url_for('webcam') }}">Live Webcam</a>
+      </nav>
+    </header>
+    <main>
+      <section class="webcam-box" id="webcam-box">
+        <video id="webcam" width="720" height="560" autoplay muted></video>
+        <canvas id="output"></canvas>
+      </section>
+      <section class="feature-selection">
+        <select id="feature-select" name="feature">
+          <option value="age" {% if feature == 'age' %}selected{% endif %}>Age</option>
+          <option value="age_range" {% if feature == 'age_range' %}selected{% endif %}>Age Range</option>
+          <option value="gender" {% if feature == 'gender' %}selected{% endif %}>Gender</option>
+          <option value="ethnicity" {% if feature == 'ethnicity' %}selected{% endif %}>Ethnicity</option>
+          <option value="emotion" {% if feature == 'emotion' %}selected{% endif %}>Emotion</option>
+        </select>
+      </section>      
+    </main>
+    <footer>
+        <p>© 2023 DemographyAI. All rights reserved.</p>
+    </footer>
+    <script>
+      const featureSelect = document.getElementById("feature-select");
+      featureSelect.addEventListener("change", function() {
+        const selectedFeature = featureSelect.value;
+        const path = selectedFeature.toLowerCase();
+        const url = `{{ url_for('webcam', feature='') }}` + path;
+        window.location.href = url; 
+      })
+    </script>
+</body>
+</html>

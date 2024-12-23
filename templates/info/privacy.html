@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DemographyAI</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='icons/head.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/info/privacy.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo" onclick="window.location.href='{{ url_for('home') }}'">
+            DemographyAI
+        </div>
+        <nav>
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('upload') }}">Upload Image</a>
+            <a href="{{ url_for('webcam') }}">Live Webcam</a>
+        </nav>
+    </header>
+    <main>
+        <h1>Privacy Policy</h1>
+        <div class="container">
+            <p><strong>Last Updated:</strong> {{ date }}</p>
+        
+            <h2>1. What We Collect</h2>
+            <p>When you upload a photo or snapshot, we collect it solely to check the accuracy of predictions like age, gender, and ethnicity. Here’s the rundown:</p>
+            <ul>
+                <li><strong>Photos/Snapshots:</strong> We collect the photos you upload to test our prediction model. These are used to evaluate how well our system works, but we don’t use them for anything else.</li>
+                <li><strong>Cookies:</strong> Just like most websites, we might use cookies to help make the site run smoothly and track things like how long people spend on pages. You can manage cookies through your browser settings.</li>
+            </ul>
+        
+            <h2>2. How We Use Your Info</h2>
+            <p>The photos or snapshots you upload are only used to:</p>
+            <ul>
+                <li>Check the accuracy of our age, gender, and ethnicity predictions.</li>
+                <li>Improve the prediction model over time (but this is for testing purposes only).</li>
+            </ul>
+            <p>Rest assured, we do <strong>not</strong> share any of your uploaded photos or personal information with anyone. They stay private.</p>
+        
+            <h2>3. Security</h2>
+            <p>We make every effort to keep your uploaded photos and any other information safe. However, no online system is 100% secure, so while we do our best, there’s always a small risk with sharing info online.</p>
+        
+            <h2>4. Changes to This Policy</h2>
+            <p>We may update this Privacy Policy from time to time. Any changes will be reflected with an updated “Last Updated” date at the top of this page. Please check back if you ever have any questions about how we handle your data.</p>
+        
+            <h2>5. Got Questions?</h2>
+            <p>If you have any questions about how we handle your photos or anything else related to this policy, feel free to reach out to us at:</p>
+            <p><strong>Email:</strong> {{ email }}</p>
+        </div>
+        
+    </main>
+
+    <footer>
+        <p>© 2023 DemographyAI. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,167 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #1e1e1e;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+}
+
+header .logo {
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+
+/* Main Content */
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.admin-access {
+    background-color: #222;
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    margin-top: 50px;
+}
+
+.admin-access h1 {
+    font-size: 2rem;
+    color: #ff5722;
+    margin-bottom: 10px;
+}
+
+.admin-access p {
+    margin-bottom: 20px;
+    font-size: 1rem;
+    color: #ccc;
+}
+
+.admin-access .input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.admin-access label {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: #ff5722;
+}
+
+.admin-access input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    background-color: #333;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    outline: none;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+.admin-access input::placeholder {
+    color: #aaa;
+}
+
+.admin-access input:focus {
+    border: 2px solid #ff5722;
+    box-shadow: 0 0 8px rgba(255, 87, 34, 0.6);
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.2rem;
+    color: #fff;
+    background-color: #ff5722;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #e64a19;
+}
+
+/* Flash Message Styles */
+.flash-messages {
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.flash-message {
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 1rem;
+    margin-top: 10px;
+    text-align: center;
+    color: #fff;
+    animation: slideIn 0.5s ease-out;
+}
+
+.flash-message.success {
+    background-color: #4CAF50; /* Green for success */
+}
+
+.flash-message.error {
+    background-color: #b71c1c; /* Red for error */
+}
+
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.back-to-login {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.back-to-login .back-link {
+    font-size: 1rem;
+    color: #ff5722;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.back-to-login .back-link:hover {
+    color: #e64a19;
+    text-decoration: underline;
+}
+
+footer {
+    background-color: #333;
+    text-align: center;
+    padding: 0px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;  
+}

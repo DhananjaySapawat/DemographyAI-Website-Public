@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DemographyAI</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='icons/head.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/face-analysis/upload.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/face-analysis/result_video.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo" onclick="window.location.href='{{ url_for('home') }}'" >
+            DemographyAI
+          </div>
+        <nav>
+          <a href="{{ url_for('home') }}">Home</a>
+          <a href="{{ url_for('upload') }}">Upload Image</a>
+          <a href="{{ url_for('webcam') }}">Live Webcam</a>
+        </nav>
+      </header>
+    <main>
+        <section class="upload-container" id="upload-container">
+            <div class="upload-box" id="upload-box">
+                <p>Drag and drop your Video here, or</p>
+                <button id="select-file-button">Select File</button>
+                <input type="file" id="file-input" style="display:none;" />
+            </div>     
+            <div class="progress-container" style="display: none;" id="progress-container">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>               
+            <button id="server-upload">Upload</button>
+            <p class="formats">Supported formats: MP4, WebM, OGG</p>
+            <p id="error-message"></p>
+        </section>
+        <section id="video-results" class="results-section" style="display:none;">
+            <div class="processed-video" id="processed-video">
+                <video id="processedVideo"controls></video>         
+            </div>
+            <button id="take-image-btn" aria-label="Upload Another File" onclick="window.location.href='{{ url_for('upload_video') }}'">
+              Upload Another Video
+            </button> 
+        </section>
+    </main>
+    <footer>
+        <p>© 2023 DemographyAI. All rights reserved.</p>
+    </footer>
+    <script src="{{ url_for('static', filename='js/face-analysis/upload_video.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/face-analysis/dragdrop.js') }}"></script>
+</body>
+</html>

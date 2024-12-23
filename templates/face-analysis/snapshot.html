@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DemographyAI</title>
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='icons/head.png') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/face-analysis/snapshot.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/face-analysis/results.css') }}">
+</head>
+<body>
+    <header>
+      <div class="logo" onclick="window.location.href='{{ url_for('home') }}'">
+        DemographyAI
+      </div>
+      <nav>
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('upload') }}">Upload Image</a>
+        <a href="{{ url_for('webcam') }}">Live Webcam</a>
+      </nav>
+    </header>
+    <main>
+      <section class="webcam-box" id="webcam-box">
+        <div class="webcam" id="webcam-container" role="region" aria-label="Webcam Feed">
+          <video id="webcam" autoplay></video>
+          <img id="webcam-click" style="display:none;" ></img>
+          <canvas id="canvas" style="display: none;"></canvas> <!-- Hidden canvas to capture snapshot -->
+        </div>
+        <button id="capture-button" aria-label="Capture Snapshot">Capture</button>
+        <div id="loading-indicator" class="loading" aria-hidden="true">Loading...</div>
+      </section>
+
+      <section id="results" class="results-section" style="display: none;">
+  
+        <h2>Snapshot Results</h2>
+        <div class="carousel" id="carousel">
+          <div class="carousel-inner" id="carousel-items"></div>
+          <button id="carousel-prev-btn" onclick="prevResult()">
+            <i class="fa fa-angle-left" aria-hidden="true"></i>
+          </button>
+          <button id="carousel-next-btn" onclick="nextResult()">
+            <i class="fa fa-angle-right" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div id = "emtpy-result" style="display: none;">
+            no image found
+        </div>
+        <button id="take-image-btn" aria-label="Take Another Snapshot" onclick="window.location.href='{{ url_for('snapshot') }}'">
+          Take Another Snapshot
+        </button> 
+      </section>
+        
+    </main>
+
+    <footer>
+        <p>© 2023 DemographyAI. All rights reserved.</p>
+    </footer>
+    <script src="{{ url_for('static', filename='js/face-analysis/results.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/face-analysis/snapshot.js') }}"></script>
+</body>
+</html>

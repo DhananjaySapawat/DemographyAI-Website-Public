@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DemographyAI - Admin Login</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='icons/head.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin/login.css') }}">
+</head>
+<body>
+    <div class="login-container">
+        <header>
+            <div class="logo">DemographyAI</div>
+        </header>
+
+        <form action="/admin_login" method="POST">
+            <h2>Admin Login</h2>
+            <div class="input-group">
+                <input type="text" name="username" placeholder="Enter Admin Username" required>
+            </div>
+            <div class="input-group">
+                <input type="password" name="password" placeholder="Enter Admin Password" required>
+            </div>
+            <button type="submit" class="login-btn">Login to Dashboard</button>
+            
+            <!-- Flash message section below the form -->
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <div class="flash-messages">
+                        {% for category, message in messages %}
+                            <div class="flash-message {{ category }}">{{ message }}</div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endwith %}
+            
+            <a href="{{ url_for('admin_access') }}" class="admin-access">Ask for admin access</a>
+        </form>
+    </div>
+</body>
+</html>

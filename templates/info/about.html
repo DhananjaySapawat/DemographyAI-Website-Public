@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DemographyAI</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='icons/head.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/info/about.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo" onclick="window.location.href='{{ url_for('home') }}'">
+            DemographyAI
+        </div>
+        <nav>
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('upload') }}">Upload Image</a>
+            <a href="{{ url_for('webcam') }}">Live Webcam</a>
+        </nav>
+    </header>
+    <main>
+        <h1>About Me</h1>
+        <p>Hey there! I'm <span class="highlight">Dhananjay Sapawat</span>, a 2024 BTech grad in Computer Science from <span class="highlight">IIT Delhi</span>.</p>
+        <p>I built this website to have some fun while testing out my skills in <span class="highlight">PyTorch</span>, <span class="highlight">Machine Learning</span>, <span class="highlight">Deep Learning</span>, <span class="highlight">Flask</span>, and a bit of both <span class="highlight">frontend</span> and <span class="highlight">backend</span> stuff.</p>
+        <p>The site lets you upload a photo or snap one with your camera to predict <span class="highlight">age</span>, <span class="highlight">gender</span>, <span class="highlight">ethnicity</span>, and even <span class="highlight">emotion</span>—all using face recognition.</p>
+        <p>I've always been super passionate about <span class="highlight">AI</span> and <span class="highlight">Machine Learning</span>, and this project is just one of the many ways I love experimenting with cool ideas in the field. Thanks for stopping by, and I hope you enjoy exploring the site! <span class="emoji">😊</span></p>
+    </main>    
+    <footer>
+        <p>© 2023 DemographyAI. All rights reserved.</p>
+    </footer>
+</body>
+</html>
